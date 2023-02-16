@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="admit1" pageWidth="266" pageHeight="802" columnWidth="266" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e9b91513-bb22-4892-b519-12a3dbf1f953">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="75"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<parameter name="parameter4" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from student_information s,ID_ORDER i where i.user_id=s.user_id and mod(sl,2)=1 and order_by=$P{parameter1}]]>
+	</queryString>
+	<field name="USER_ID" class="java.math.BigDecimal"/>
+	<field name="STUDENT_NAME" class="java.lang.String"/>
+	<field name="CLASS" class="java.lang.String"/>
+	<field name="SECTION" class="java.lang.String"/>
+	<field name="YEAR" class="java.lang.String"/>
+	<field name="FATHER_NAME" class="java.lang.String"/>
+	<field name="FATHER_PHONE" class="java.lang.String"/>
+	<field name="MOTHER_NAME" class="java.lang.String"/>
+	<field name="MOTHER_MOBILE" class="java.lang.String"/>
+	<field name="GUARDIAN_NAME" class="java.lang.String"/>
+	<field name="GUARDIAN_PHONE" class="java.lang.String"/>
+	<field name="GUARDIAN_ADDRESS" class="java.lang.String"/>
+	<field name="RELATION" class="java.lang.String"/>
+	<field name="ADDRESS1" class="java.lang.String"/>
+	<field name="ADDRESS2" class="java.lang.String"/>
+	<field name="PHONE" class="java.lang.String"/>
+	<field name="DATE_OF_BIRTH" class="java.sql.Timestamp"/>
+	<field name="RESIDENT" class="java.lang.String"/>
+	<field name="MONTHLY_FEE" class="java.math.BigDecimal"/>
+	<field name="IMAGE" class="java.io.InputStream"/>
+	<field name="IDATE" class="oracle.sql.TIMESTAMP"/>
+	<field name="IBY" class="java.math.BigDecimal"/>
+	<field name="C_ROLL" class="java.lang.String"/>
+	<field name="SL" class="java.math.BigDecimal"/>
+	<field name="ORDER_BY" class="java.math.BigDecimal"/>
+	<detail>
+		<band height="229" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="0877d129-1f77-4533-8704-ef91f77863c0" mode="Transparent" x="4" y="7" width="259" height="216"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="dbde1855-7a5d-4812-b042-1e71f15798e4" x="7" y="14" width="259" height="18" forecolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DHAKA IDEAL MADRASHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba75ffb9-b95f-458e-a03b-2c5868853d63" x="7" y="32" width="259" height="12" forecolor="#FF00CC"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[An International Standard Combination With Madrasha Education]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="12a6800a-53b7-4c19-964e-5e9dae442d82" x="11" y="14" width="34" height="30"/>
+				<imageExpression><![CDATA["C:\\report\\madrasha.png"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="0dea79ab-7b2b-469a-a756-72f89389d541" x="186" y="66" width="67" height="67"/>
+				<imageExpression><![CDATA[$F{IMAGE}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="29242651-b772-4e4e-951d-c026aafd972c" x="4" y="51" width="259" height="14"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parameter2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="573338cc-2b2b-4099-81c5-c5712a919657" x="7" y="66" width="45" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e18f7b8c-f0d1-4e52-8080-6594f395281c" x="61" y="66" width="55" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{USER_ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2f23243c-5a4c-42c3-9341-9c5d2cce8489" x="7" y="90" width="45" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="e1b4488d-ca9a-413d-b172-d80d72be1b5e" x="61" y="90" width="122" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STUDENT_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e396f3fd-44bf-4b0e-90e5-ebbb7de88f8c" x="7" y="102" width="45" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLASS]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9537d9bc-ad8a-4e14-8665-4463989c98d4" x="61" y="102" width="122" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CLASS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e569bc18-ecaa-4f6a-8440-9911e26c9b2f" x="7" y="114" width="45" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SECTION]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="edf19c79-d41c-4fab-ae44-82f9f5dfbd40" x="61" y="114" width="122" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SECTION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="12833c8b-8725-4f0f-8ad0-a97da16e065b" x="7" y="126" width="45" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SESSION]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8eb1b8b5-e5be-4469-8349-ddd357743e6c" x="61" y="126" width="122" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YEAR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="03f4851e-7e62-44ea-a2b7-5bccecf19ded" x="61" y="138" width="122" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parameter3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5688bf3e-71c1-4d8f-afdb-1b363a4587eb" x="7" y="138" width="45" height="13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ISSUE DATE]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="8057ef9d-c485-44e2-8b0c-ac6b44b7845b" x="202" y="157" width="54" height="20"/>
+				<imageExpression><![CDATA["C:\\report\\sign principal Mamunur rashid.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="0bf9eb86-b841-48d8-a210-76ff795a4879" x="15" y="157" width="54" height="20"/>
+				<imageExpression><![CDATA["C:\\report\\sign Vice principle Mahmud hasan.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="e51df357-0cb8-46b5-96ee-f0da74749803" x="7" y="180" width="54" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Examiner]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="744126c9-184b-46bb-b1c3-a1331eab24a5" x="7" y="179" width="54" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="fe071ac7-e2b9-49f4-9be6-c093d9fb1181" x="196" y="180" width="54" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Principal]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b615b8de-9902-4df7-8f6a-d1a34072b5ca" x="196" y="179" width="54" height="1"/>
+			</line>
+			<image>
+				<reportElement uuid="a7ff8903-0fcd-4e8b-9ad3-e1fa1965477a" x="6" y="198" width="253" height="25"/>
+				<imageExpression><![CDATA["C:\\report\\admit.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement uuid="8b5ee784-64dc-44b2-990d-b6ae216e978b" x="4" y="195" width="259" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="42d73e59-781a-4721-94a9-68541fef31a1" x="57" y="66" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1d4b2afc-8fd5-4e42-b1da-a96ab0beb950" x="57" y="90" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0419aac9-49ec-47d8-8e55-718943b281b6" x="57" y="102" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="39725c1d-e611-49c2-8fa5-ceecae0add41" x="57" y="114" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c1aded6-a764-4d13-b77e-9acdfef59380" x="57" y="126" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d8ac6fd-4936-4b71-bb5a-95afe94386ac" x="57" y="138" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2f592f09-c6bc-4c5d-9d1a-a8155093e307" x="7" y="78" width="45" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ROLL]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="866c3669-0fb0-4d14-8bd6-bf5226230679" x="61" y="78" width="35" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{C_ROLL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8b4728ba-b4f5-42cc-9539-993d9363c35a" x="57" y="78" width="4" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8c5cf9b5-07d1-4826-b821-4d23a15dc2fd" x="4" y="42" width="259" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parameter4}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

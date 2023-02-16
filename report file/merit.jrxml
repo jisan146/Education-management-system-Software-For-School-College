@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="105ccb6e-8432-49b4-a2b6-e734036ca5c2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+$P{parameter2}||' Exam''s Merit List of Class '||$P{parameter1}||', '||to_char(sysdate,'rrrr') h,'Print By : '||(select stuff_name from stuff_information where user_id=$P{parameter3})||' ('||$P{parameter3}||')         Print Date : ' ||to_char(sysdate,'dd-MON-rr') name,
+
+ g.USER_ID,c_roll,student_name,tn,gp,g,p from gpa g, student_information s where g.USER_ID=s.user_id and class=$P{parameter1} order by g.pp]]>
+	</queryString>
+	<field name="H" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="USER_ID" class="java.math.BigDecimal"/>
+	<field name="C_ROLL" class="java.lang.String"/>
+	<field name="STUDENT_NAME" class="java.lang.String"/>
+	<field name="TN" class="java.math.BigDecimal"/>
+	<field name="GP" class="java.math.BigDecimal"/>
+	<field name="G" class="java.lang.String"/>
+	<field name="P" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="d8cad857-1b90-4308-b8fc-d2e6f83d7410" x="1" y="10" width="552" height="33"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DHAKA IDEAL MADRASHA]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="7c7ceee4-f8d1-456b-9d51-fba563538b2b" x="60" y="2" width="50" height="50"/>
+				<imageExpression><![CDATA["C:\\report\\madrasha.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement uuid="874ebdef-c33c-4cb5-92cd-0cee671c75bf" x="2" y="-1" width="552" height="24"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{H}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="22698c94-4163-4904-8eac-c737491820ef" x="2" y="23" width="552" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="40b2cc61-9532-482d-80ad-9e7f34c54c56" x="0" y="0" width="62" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8804705c-ac1c-45ca-aa0d-d8078654ed5d" x="62" y="0" width="49" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Class Roll]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dff266ca-fb17-429c-b549-c2b48e9adff6" x="111" y="0" width="143" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Student Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f73c2beb-6239-42de-9a93-be91270aa0d4" x="254" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Total Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="220c8d39-dadf-4c17-95c7-66014594cda2" x="329" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Grade Point]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cf12da91-13f0-4904-b613-8ca91f708e70" x="404" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Letter Grade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d92c3f0d-2d8a-497f-aae7-21f3fdf9f966" x="479" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Position]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c96b35a6-8600-4c43-a866-3568f85238dc" x="0" y="0" width="62" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{USER_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="59c6ee19-74fb-4453-94a6-fbb880e4a2fc" x="62" y="0" width="49" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{C_ROLL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f2170301-b25e-4b6f-906a-ed3e5a992dc7" x="111" y="0" width="143" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{STUDENT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="21499306-3efd-4890-9b62-c78257b8bf4b" x="254" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ce398ef8-ba17-4d6e-bd18-cc40f43789eb" x="329" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{GP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="48143904-7b54-456e-a68d-050d086a777d" x="404" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{G}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aade53ef-3bdb-4fdd-ba36-a843c2de770f" x="479" y="0" width="75" height="16"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{P}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="171bc054-d8e2-4689-96d8-e887ce8f0992" x="0" y="0" width="554" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Software Developed By SR BUILDERS #01687602005]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

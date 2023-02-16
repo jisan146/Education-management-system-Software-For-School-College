@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="revenue_subreport2" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="11afdad5-d9d0-46b5-9c85-d86dec07719e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select o_by, id,nvl((select student_name from student_information where user_id=sid),' ') student_name,note,ammount from revenue where  to_date(to_char(date_time,'dd-mon-rr')) between to_date($P{parameter1},'dd-mon-rr')  and to_date($P{parameter2},'dd-mon-rr') and type='Spend' order by id]]>
+	</queryString>
+	<field name="O_BY" class="java.math.BigDecimal"/>
+	<field name="ID" class="java.math.BigDecimal"/>
+	<field name="STUDENT_NAME" class="java.lang.String"/>
+	<field name="NOTE" class="java.lang.String"/>
+	<field name="AMMOUNT" class="java.math.BigDecimal"/>
+	<variable name="AMMOUNT_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMMOUNT}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="055783a4-47b4-44f8-a01c-9c4781e03bd7" x="0" y="0" width="802" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Spend]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="50e4b239-7435-48cb-a4c7-38c4ed646829" x="0" y="0" width="61" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Entry By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9c617b85-92f2-4d79-ae33-565c15e5a2af" x="61" y="0" width="95" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Receipt No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fba0274e-3124-43f2-ae49-ece2fc5f77de" x="156" y="0" width="160" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[STUDENT NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="40d41cca-1bdb-4256-8175-cfb1ce893036" x="316" y="0" width="388" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0a3960c6-7aa6-4384-aaf8-0b79021ff31b" x="704" y="0" width="98" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[AMMOUNT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="886b37f5-cc02-445a-9ede-c9c1c3a579d9" x="0" y="0" width="61" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{O_BY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bdcb8161-31db-45d5-9e9d-0b862802b72d" x="61" y="0" width="95" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f0ad459c-97bc-474e-a996-4456096d731b" x="156" y="0" width="160" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{STUDENT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c3477ee8-8cf7-4274-89f1-d8625261bec2" x="316" y="0" width="388" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Vrinda" pdfFontName="C:\vrinda.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ee48ce05-29ab-4b8f-9da3-6865351f4390" x="704" y="0" width="98" height="16"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{AMMOUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="6a3d089d-344a-4c7e-83a5-655f66c0b249" x="704" y="0" width="98" height="16"/>
+				<box leftPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{AMMOUNT_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6c33a42b-ec97-4c98-8f57-dd4952488a64" x="602" y="0" width="102" height="16"/>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total  ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="admit" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="657d1445-6a1f-4ffc-b7c2-3968e7237f85">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\jisan\\Desktop\\New folder\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<parameter name="parameter4" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<field name="1" class="java.math.BigDecimal"/>
+	<detail>
+		<band height="142">
+			<subreport>
+				<reportElement uuid="9df932c9-6709-4fc9-b4ac-86867edb0bd1" x="5" y="4" width="200" height="37"/>
+				<subreportParameter name="parameter2">
+					<subreportParameterExpression><![CDATA[$P{parameter2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter1">
+					<subreportParameterExpression><![CDATA[$P{parameter1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter4">
+					<subreportParameterExpression><![CDATA[$P{parameter4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter3">
+					<subreportParameterExpression><![CDATA[$P{parameter3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "admit1.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="f7511575-9578-43d6-92de-823c1d91e8c7" x="284" y="4" width="200" height="37"/>
+				<subreportParameter name="parameter2">
+					<subreportParameterExpression><![CDATA[$P{parameter2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter1">
+					<subreportParameterExpression><![CDATA[$P{parameter1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter4">
+					<subreportParameterExpression><![CDATA[$P{parameter4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter3">
+					<subreportParameterExpression><![CDATA[$P{parameter3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "admit2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

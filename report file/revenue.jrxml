@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="revenue" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28d8571a-b665-46de-8651-2583e0280d7d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\jisan\\Desktop\\New folder\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<parameter name="parameter2" class="java.lang.String"/>
+	<parameter name="parameter3" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+(select stuff_name||'('||user_id||')' from stuff_information where user_id=$P{parameter3})name,
+(select data from app_information where sl=1)school,
+(select 'Revenue Report Between '||$P{parameter1}||' and '||$P{parameter2} from dual)des,
+nvl((select sum(ammount) from revenue where to_date(to_char(date_time,'dd-mon-rr')) between to_date($P{parameter1},'dd-mon-rr')  and to_date($P{parameter2},'dd-mon-rr') and type='Income'),0)inc,
+nvl((select sum(ammount) from revenue where to_date(to_char(date_time,'dd-mon-rr')) between to_date($P{parameter1},'dd-mon-rr')  and to_date($P{parameter2},'dd-mon-rr') and type='Spend'),0)spe,
+nvl((select sum(ammount) from revenue where to_date(to_char(date_time,'dd-mon-rr')) between to_date($P{parameter1},'dd-mon-rr')  and to_date($P{parameter2},'dd-mon-rr') and type='Income'),0)-
+nvl((select sum(ammount) from revenue where to_date(to_char(date_time,'dd-mon-rr')) between to_date($P{parameter1},'dd-mon-rr')  and to_date($P{parameter2},'dd-mon-rr') and type='Spend'),0)res
+from dual]]>
+	</queryString>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="SCHOOL" class="java.lang.String"/>
+	<field name="DES" class="java.lang.String"/>
+	<field name="INC" class="java.math.BigDecimal"/>
+	<field name="SPE" class="java.math.BigDecimal"/>
+	<field name="RES" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ac671709-ad71-4a60-87c0-537d9a49d8d9" x="0" y="0" width="802" height="36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCHOOL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f14a24ce-c082-478a-b1c1-c2056602f238" x="0" y="36" width="802" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DES}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="377a6950-b23b-4936-bcf3-5399216e215a" x="0" y="65" width="46" height="14"/>
+				<textElement/>
+				<text><![CDATA[Print By]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2d309112-5e34-4cdb-8141-61751bad71ca" x="46" y="65" width="305" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<subreport>
+				<reportElement uuid="2c0a9824-2fdf-44d4-b44d-d30c9f19c37a" x="0" y="0" width="802" height="21"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter2">
+					<subreportParameterExpression><![CDATA[$P{parameter2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter1">
+					<subreportParameterExpression><![CDATA[$P{parameter1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "revenue_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="24">
+			<subreport>
+				<reportElement uuid="719165f7-becf-4c0d-88bb-8a3f9891eb65" x="0" y="0" width="802" height="24"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter2">
+					<subreportParameterExpression><![CDATA[$P{parameter2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="parameter1">
+					<subreportParameterExpression><![CDATA[$P{parameter1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "revenue_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="26" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="677d02de-3eb9-4c37-a977-5f7e51e38f32" x="0" y="0" width="802" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Software Developed By SR Builders #01687602005]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bb7779fc-516a-44f1-9e01-36e25c80a3c6" x="70" y="0" width="216" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{INC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f37cdfb3-210c-4bc4-969f-9b2ef59ff102" x="70" y="15" width="216" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bd4158a3-8b7f-4ba2-ac39-4fb842864ae0" x="70" y="30" width="216" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{RES}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e33e13d0-2c5b-4e59-971f-a45b8f6202bc" x="0" y="0" width="70" height="16"/>
+				<textElement/>
+				<text><![CDATA[Total Income]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="505d24c3-f7a3-4cf1-a400-3937d4e95467" x="0" y="15" width="70" height="16"/>
+				<textElement/>
+				<text><![CDATA[Total Spend]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82125765-b12a-4bc5-815a-e7d5d9481e47" x="0" y="30" width="70" height="16"/>
+				<textElement/>
+				<text><![CDATA[Result]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

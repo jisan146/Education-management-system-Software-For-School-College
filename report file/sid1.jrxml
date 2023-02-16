@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="id" pageWidth="352" pageHeight="595" orientation="Landscape" columnWidth="352" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="03437884-76c8-4034-8bc2-79e3e35cb1bc">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="74"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from stuff_information s,ID_ORDER i where i.user_id=s.user_id and mod(sl,2)=1 and order_by=$P{parameter1}]]>
+	</queryString>
+	<field name="USER_ID" class="java.math.BigDecimal"/>
+	<field name="STUFF_NAME" class="java.lang.String"/>
+	<field name="FATHER_NAME" class="java.lang.String"/>
+	<field name="FATHER_PHONE" class="java.lang.String"/>
+	<field name="MOTHER_NAME" class="java.lang.String"/>
+	<field name="MOTHER_MOBILE" class="java.lang.String"/>
+	<field name="GUARDIAN_NAME" class="java.lang.String"/>
+	<field name="GUARDIAN_PHONE" class="java.lang.String"/>
+	<field name="GUARDIAN_ADDRESS" class="java.lang.String"/>
+	<field name="RELATION" class="java.lang.String"/>
+	<field name="ADDRESS1" class="java.lang.String"/>
+	<field name="ADDRESS2" class="java.lang.String"/>
+	<field name="PHONE" class="java.lang.String"/>
+	<field name="DATE_OF_BIRTH" class="java.sql.Timestamp"/>
+	<field name="IMAGE" class="java.io.InputStream"/>
+	<field name="IDATE" class="oracle.sql.TIMESTAMP"/>
+	<field name="IBY" class="java.math.BigDecimal"/>
+	<field name="DESIGNATION" class="java.lang.String"/>
+	<field name="SIGN" class="java.io.InputStream"/>
+	<field name="YEAR" class="java.lang.String"/>
+	<field name="SL" class="java.math.BigDecimal"/>
+	<field name="ORDER_BY" class="java.math.BigDecimal"/>
+	<detail>
+		<band height="274" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a765cefa-d70d-4d0f-b313-3d6b2c089909" x="10" y="72" width="159" height="16" forecolor="#006600"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DHAKA IDEAL MADRASHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="07440d15-bf68-4955-907b-f899bffbf3f9" mode="Opaque" x="12" y="203" width="45" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Session]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b14c48bf-f02b-40ff-8ec5-57e38b311351" mode="Opaque" x="12" y="189" width="45" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1b0e499b-32e1-4b29-bf61-720b501a4000" mode="Opaque" x="22" y="87" width="135" height="13" forecolor="#FFFFFF" backcolor="#990000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STUFF'S IDENTITY CARD]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="d087fcab-5ec4-4eb1-ac4b-fe8c78e282e7" x="59" y="13" width="59" height="59"/>
+				<imageExpression><![CDATA["C:\\report\\madrasha.png"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="a48987e5-60b2-46e4-b142-b44efb316dfd" x="57" y="102" width="70" height="70"/>
+				<imageExpression><![CDATA[$F{IMAGE}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="07469b22-c541-4251-bde7-e46b0aec7638" mode="Transparent" x="59" y="189" width="110" height="13" forecolor="#000000" backcolor="#A0FE92"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{STUFF_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1fb30fac-d1c5-47df-8126-19337df598da" mode="Transparent" x="59" y="217" width="110" height="13" forecolor="#000000" backcolor="#A0FE92"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESIGNATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1113a8f6-8aef-462e-8eec-d2fa90c3fff6" mode="Transparent" x="59" y="203" width="110" height="13" forecolor="#000000" backcolor="#A0FE92"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YEAR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="57009a93-7e75-46f8-a5fc-63bacf000bfb" mode="Opaque" x="12" y="175" width="45" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID NO]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6fa9c9b8-6f40-4f85-ae67-1e91361a116a" mode="Transparent" x="59" y="175" width="110" height="13" forecolor="#000000" backcolor="#A0FE92"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{USER_ID}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="bf31a237-02d8-40e3-950d-6844a371455b" x="221" y="61" width="81" height="76"/>
+				<imageExpression><![CDATA["C:\\report\\madrasha.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="12bbbf8c-7acf-4518-913e-10b44206a608" mode="Opaque" x="183" y="235" width="157" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Software Developed By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29982651-b5ef-4971-a71a-9304ef9ecaf5" x="181" y="45" width="159" height="16" forecolor="#006600"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[If found please return to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a7bed298-bd1d-4d49-902f-4936b00d5b4c" x="182" y="165" width="159" height="13" forecolor="#006600"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rupnagar-R/A, Mirpur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9604b209-2608-4315-8535-5b6c346ad95d" x="183" y="190" width="158" height="14" forecolor="#006600"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CELL:01738177117,01721409057]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="89649b3e-0703-41f2-a39c-81ef02cd8cd2" x="182" y="138" width="159" height="16" forecolor="#006600"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DHAKA IDEAL MADRASHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7104ab24-1ed0-4b9c-a7c7-f4b132d9f756" x="183" y="178" width="157" height="14" forecolor="#006600"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL :02-9026939]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eefad3a3-c562-4378-b63c-cd895c442344" mode="Opaque" x="183" y="249" width="157" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SR Builders #01687602005]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1ffcacff-9ff8-4453-ba7f-1f029f68e73b" x="182" y="154" width="159" height="13" forecolor="#006600"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Road-22, House-33,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd493d18-3c1f-457a-8fc9-b95252430578" mode="Opaque" x="12" y="248" width="54" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<box leftPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECTOR]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="82ed3fbd-ad07-4f29-8edb-6d17e403d49d" mode="Transparent" x="12" y="234" width="54" height="13" backcolor="#FFFFFF"/>
+				<imageExpression><![CDATA["C:\\report\\sign principal Mamunur rashid.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="8051f370-1897-42d5-98af-99ead1d86f32" mode="Opaque" x="115" y="248" width="54" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STUFF]]></text>
+			</staticText>
+			<image scaleImage="FillFrame">
+				<reportElement uuid="7e8bf675-4189-42f8-b5f4-24a98fffb139" mode="Transparent" x="115" y="234" width="54" height="13" backcolor="#FFFFFF"/>
+				<imageExpression><![CDATA[$F{SIGN}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="5b1fb2f8-6682-48f3-a53b-aeb6eb1ee9b5" mode="Opaque" x="66" y="248" width="51" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b8fd2a6d-2c23-4fc7-a9e3-066af02930af" mode="Opaque" x="12" y="217" width="45" height="13" forecolor="#FFFFFF" backcolor="#009900"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Position]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="fd23b7a2-e542-41ef-8ad6-3df344dbd2e6" mode="Transparent" x="10" y="11" width="160" height="251"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8b25dccc-1ff2-4a6c-96ba-b34c92d88e53" mode="Transparent" x="181" y="11" width="160" height="251"/>
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>
